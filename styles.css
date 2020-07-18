@@ -26,11 +26,12 @@ body {
 
   div.card {
     background-color: #eeeeee;
-    height: 250px;
-    width: 300px;
+    height: 300px;
+    width: 350px;
     box-shadow: 10px 10px grey;
     padding: 10px;
     border-radius: 10px;
+    display: inline-block;
   }
 
   p {
@@ -46,9 +47,9 @@ body {
   }
 
   button {
-    font-size: .65em;
+    font-size: .99em;
     color: #fff;
-    background-color: green;
+    background-color: red;
     border-radius: 10px;
   }
 
@@ -67,4 +68,8 @@ body {
     main {
       grid-template-columns: 1fr 1fr 1fr 1fr;
     }
+  }
+
+  main {
+    text-align: center;
   }
