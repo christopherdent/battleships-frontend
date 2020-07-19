@@ -73,3 +73,29 @@ body {
   main {
     text-align: center;
   }
+
+
+  h2.battle {
+    position:top;
+    top:-5px;
+    font-size: 2em;
+    color: black;
+  }
+
+
+  #main {
+    display: inline-block;
+    background-color: #ccc;
+    padding: 20px
+  }
+
+  #battlefield {
+    background-image: url("https://wallpapersite.com/images/pages/pic_w/16589.jpg");
+    background-color: blue;
+    height: 3650px;
+    width: 600px;
+    box-shadow: 10px 10px grey;
+    padding: 10px;
+    border-radius: 10px;
+
+}

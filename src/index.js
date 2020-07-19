@@ -29,14 +29,14 @@ function buildShipCard(ship) {
     const para2 = document.createElement('P')
     const btn = document.createElement("BUTTON")
     btn.setAttribute('data-id', ship.id)
-    const ul = document.createElement("UL")
-    const li = document.createElement("LI")
-    const li2 = document.createElement("LI")
-    const li3 = document.createElement("LI")
+    // const ul = document.createElement("UL")
+    // const li = document.createElement("LI")
+    // const li2 = document.createElement("LI")
+    // const li3 = document.createElement("LI")
     let img = document.createElement("img");
       img.src = ship.image
       para.innerText = ship.name
-      li.innerText = `${ship.country} / ${ship.kind}`
+      para2.innerText = `${ship.country} / ${ship.kind}`
       // li2.innerText = ship.kind
       // li3.innerText = ship.image
       img.width = "150";
@@ -47,14 +47,14 @@ function buildShipCard(ship) {
     document.getElementById('main').appendChild(card)
       card.appendChild(img)
       card.appendChild(para)
-      card.appendChild(ul)
+      card.appendChild(para2)
       card.appendChild(btn)
         // ship.rainer.pokemons.forEach(pokemon => renderPokemon(pokemon))
-        ul.appendChild(li)
+        // ul.appendChild(li)
         // ul.appendChild(li2)
 
 }
-
+getShips()
 // function renderShip(ship){
 //   const ul = document.querySelector(`div[data-id="${pokemon.trainer_id}"]`)
 //   const li = document.createElement("LI")
@@ -72,4 +72,4 @@ function buildShipCard(ship) {
 
 //next you need a function to build a fleet card
 
-getShips()
+// getShips()
