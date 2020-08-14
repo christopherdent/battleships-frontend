@@ -32,7 +32,7 @@ function buildShipCard(ship) {
       para.innerText = ship.name
       btn.innerText = "Add to Fleet"
       btn.addEventListener("click", greyShipCard)
-
+      btn.addEventListener("click", assignFleet)
     document.getElementById('main').appendChild(card)
       card.appendChild(img)
       card.appendChild(para)
@@ -42,39 +42,34 @@ function buildShipCard(ship) {
 
 function greyShipCard(event){
     event.preventDefault()
-      // let divs = Array.from(document.querySelectorAll('[data-id]'));
-      // let btns = Array.from(document.getElementsByClassName("addBtn"))
       //You'll have to add logic here to physically move the boat into a Fleet object as soon as it disappers from "Avail ships"
-
-      const configObj = {
-          method: "POST",
-          headers: {"Conent-Type": "application/json"},
-          
-          body: JSON.stringify({ ship_id: event.target.dataset.id })
-        }
-
-      fetch("http://localhost:3000/fleets", configObj)
-        .then(response => response.json())
-        .then(fleet => console.log(fleet));
-
-      console.log(event)
-        event.target.parentElement.remove()
+    event.target.parentElement.remove()
   }
 
+function assignFleet(event) {
+  event.preventDefault()
+        console.log(event)
 
-// function postShips(event){
-//   event.preventDefault()
-//
-//   const configObj = {
-//       method: "POST",
-//       headers: {"Conent-Type": "application/json"},
-//       body: JSON.stringify({ ship_id: event.target.dataset.id })
-//     }
-//
-//   fetch("http://localhost:3000/ships", configObj)
-//     .then(response => response.json())
-//     .then(ship => console.log(ship);
-//   }
+        let data = {
+          // "ship_id": event.target.dataset.id,
+          "fleet_id": 1
+        };
+
+      let configObj = {
+          method: "PATCH",  //patch
+          headers:  {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+          },
+          body: JSON.stringify(data)
+        };
+
+  fetch(`http://localhost:3000/ships/${event.target.dataset.id}`, configObj)
+    .then(response => response.json())
+    .then(json => console.log(json));
+}
+// // because of patch request i need to give ship id
+
 
 
 // function selectShips(){
