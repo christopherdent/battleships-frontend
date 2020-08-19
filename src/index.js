@@ -42,16 +42,15 @@ function buildShipCard(ship) {
 
 function greyShipCard(event){
     event.preventDefault()
-      //You'll have to add logic here to physically move the boat into a Fleet object as soon as it disappers from "Avail ships"
+  //  if (shit how do i tell javascript that the fleet has 5 already?  another fetch?) this method needs to happen only if there are less than 5 ships.  What about "unless a fleet card exists?" {
     event.target.parentElement.remove()
   }
+//}
 
 function assignFleet(event) {
   event.preventDefault()
-        console.log(event)
 
         let data = {
-          // "ship_id": event.target.dataset.id,
           "fleet_id": 1
         };
 
@@ -61,16 +60,25 @@ function assignFleet(event) {
             "Content-Type": "application/json",
             "Accept": "application/json"
           },
-          body: JSON.stringify(data)
+          body: JSON.stringify({fleet_id: 1})
         };
 
   fetch(`http://localhost:3000/ships/${event.target.dataset.id}`, configObj)
     .then(response => response.json())
-    .then(json => console.log(json));
-}
+    .then(json => {
+      if (json.message) {
+        alert(json.message)
+      } else {
+        
+      }
+    })
+  }
+
+
+
+
+
 // // because of patch request i need to give ship id
-
-
 
 // function selectShips(){
 //   setTimeout(function(){ alert("Select Your Ships!"); }, 2500);
