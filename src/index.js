@@ -42,10 +42,8 @@ function buildShipCard(ship) {
 
 function greyShipCard(event){
     event.preventDefault()
-  //  if (shit how do i tell javascript that the fleet has 5 already?  another fetch?) this method needs to happen only if there are less than 5 ships.  What about "unless a fleet card exists?" {
     event.target.parentElement.remove()
   }
-//}
 
 function assignFleet(event) {
   event.preventDefault()
@@ -69,25 +67,40 @@ function assignFleet(event) {
       if (json.message) {
         alert(json.message)
       } else {
-        
+
       }
     })
   }
 
-
-
-
-
-// // because of patch request i need to give ship id
-
 // function selectShips(){
 //   setTimeout(function(){ alert("Select Your Ships!"); }, 2500);
 // }
+// document.addEventListener('DOMContentLoaded', resetFleet)
+// /// trying to build a way that the fleet clears its ships on a reload..... tough one....
+// function resetFleet(event) {
+//
+// }
+
+
+
+function resetFleet() {
+  let configObj = {
+      method: "PATCH",  //patch
+      headers:  {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({fleet_id: 0})
+    };
+    fetch("http://localhost:3000/fleets", configObj)
+    .then(function(response) {
+      return response.json();
+    })
+      .then(json => console.log(json));
+    }
 
 document.addEventListener('DOMContentLoaded', function() {
-getShips()
-// addToFleet()
 
+  getShips()
 
-//you'll need a method that resets the boards once loaded .
 })
