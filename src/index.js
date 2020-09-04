@@ -9,7 +9,7 @@ function getShips(){
       json.forEach(ship => console.log(ship.name));
       json.forEach(ship => buildShipCard(ship))
     });
-    greyShipCard()
+    moveShipCard()
   }
 
 function buildShipCard(ship) {
@@ -31,7 +31,7 @@ function buildShipCard(ship) {
       img.height = "150";
       para.innerText = ship.name
       btn.innerText = "Add to Fleet"
-      btn.addEventListener("click", greyShipCard)
+      btn.addEventListener("click", moveShipCard)
       btn.addEventListener("click", assignFleet)
     document.getElementById('main').appendChild(card)
       card.appendChild(img)
@@ -40,9 +40,14 @@ function buildShipCard(ship) {
       card.appendChild(btn)
 }
 
-function greyShipCard(event){
+function moveShipCard(event){
     event.preventDefault()
-    event.target.parentElement.remove()
+    const div = event.target.parentElement
+    div.remove()
+    const parent = document.getElementById("right")
+
+    parent.appendChild(div)
+
   }
 
 function assignFleet(event) {
@@ -66,20 +71,23 @@ function assignFleet(event) {
     .then(json => {
       if (json.message) {
         alert(json.message)
+        battle()
       } else {
 
       }
     })
   }
 
-// function selectShips(){
-//   setTimeout(function(){ alert("Select Your Ships!"); }, 2500);
-// }
-// document.addEventListener('DOMContentLoaded', resetFleet)
-// /// trying to build a way that the fleet clears its ships on a reload..... tough one....
-// function resetFleet(event) {
-//
-// }
+function battle() {
+  let button = document.createElement("img");
+  button.src = "src/battle.png"
+  document.getElementById('right').appendChild(button)
+
+}
+
+ function selectShips(){
+  setTimeout(function(){ alert("Select Your Five Ships!"); }, 1000);
+}
 
 
 
@@ -94,13 +102,15 @@ function resetFleet() {
     };
     fetch("http://localhost:3000/fleets", configObj)
     .then(function(response) {
-      return response.json();
+       response.json();
     })
       .then(json => console.log(json));
     }
 
+
+
 document.addEventListener('DOMContentLoaded', function() {
-
-  getShips()
-
+  resetFleet()  //resets everything
+  getShips() //fetches ship cards & sets up chain of click events
+  selectShips()  // message to user to select their ships
 })
