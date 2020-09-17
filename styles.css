@@ -84,18 +84,28 @@ body {
 
 
   #main {
+    background-image: url("https://wallpapersite.com/images/pages/pic_w/16589.jpg");
     display: inline-block;
     background-color: #ccc;
     padding: 20px
   }
 
   #right {
-    background-image: url("https://wallpapersite.com/images/pages/pic_w/16589.jpg");
+    /* background-image: url("https://wallpapersite.com/images/pages/pic_w/16589.jpg"); */
     background-color: blue;
     height: 3650px;
-    width: 800px;
+    width: 1200px;
     box-shadow: 10px 10px grey;
     padding: 10px;
     border-radius: 10px;
 
+}
+
+  #battlefield {
+    background-image: url("https://wallpapersite.com/images/pages/pic_w/16589.jpg");
+  }
+
+  #battlebutton {
+  display: flex;
+  justify-content: center;
 }
