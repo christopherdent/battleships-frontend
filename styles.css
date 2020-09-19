@@ -1,18 +1,29 @@
 
 
+.hero {
+  padding-left: 50%
+}
+
+/* original code below  */
+
 body {
   background: url('https://ak.picdn.net/shutterstock/videos/25382975/thumb/1.jpg?ip=x480') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
+
+
 }
 
 
-  header h1 {
+  h1 {
     padding: 10px;
     margin: 0;
     text-align: center;
+    color: white;
+      position: fixed;
+
   }
 
   main {
@@ -20,15 +31,15 @@ body {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     grid-gap: 20px;
-    padding-top: 10px;
-    padding-bottom: 30px;
+    padding-top: 100px;
+    padding-bottom: 300px;
 
   }
 
   div.card {
     background-color: #eeeeee;
     height: 300px;
-    width: 350px;
+    width: 300px;
     box-shadow: 10px 10px grey;
     padding: 10px;
     border-radius: 10px;
@@ -36,6 +47,16 @@ body {
 
   }
 
+  div.cardsmall {
+    background-color: #eeeeee;
+    height: 250px;
+    width: 250px;
+    box-shadow: 10px 10px grey;
+    padding: 10px;
+    border-radius: 10px;
+    display: inline-block;
+
+  }
 
 
   p {
