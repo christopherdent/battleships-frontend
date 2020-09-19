@@ -1,13 +1,13 @@
-body {
-    margin: 0;
-    padding: 0;
-  }
 
-  header {
-    background-color: blue;
-    margin: 0 auto;
-    height: 60px;
-  }
+
+body {
+  background: url('https://ak.picdn.net/shutterstock/videos/25382975/thumb/1.jpg?ip=x480') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
 
   header h1 {
     padding: 10px;
@@ -22,6 +22,7 @@ body {
     grid-gap: 20px;
     padding-top: 10px;
     padding-bottom: 30px;
+
   }
 
   div.card {
@@ -32,7 +33,10 @@ body {
     padding: 10px;
     border-radius: 10px;
     display: inline-block;
+
   }
+
+
 
   p {
     font-size: 1.5em;
@@ -72,40 +76,25 @@ body {
 
   main {
     text-align: center;
+    float:left;
   }
 
 
-  h2.battle {
+  /* h2.battle {
     position:top;
     top:-5px;
     font-size: 2em;
     color: black;
-  }
+  } */
 
 
-  #main {
-    background-image: url("https://wallpapersite.com/images/pages/pic_w/16589.jpg");
-    display: inline-block;
-    background-color: #ccc;
-    padding: 20px
-  }
-
-  #right {
-    /* background-image: url("https://wallpapersite.com/images/pages/pic_w/16589.jpg"); */
-    background-color: blue;
-    height: 3650px;
-    width: 1200px;
-    box-shadow: 10px 10px grey;
-    padding: 10px;
-    border-radius: 10px;
-
-}
 
   #battlefield {
-    background-image: url("https://wallpapersite.com/images/pages/pic_w/16589.jpg");
+    /* background-image: url("https://wallpapersite.com/images/pages/pic_w/16589.jpg"); */
   }
 
   #battlebutton {
   display: flex;
   justify-content: center;
+
 }

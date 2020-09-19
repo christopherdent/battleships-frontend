@@ -45,74 +45,49 @@ function moveShipCard(event){
     const div = event.target.parentElement
     div.remove()  //removes from avail ships
     const parent = document.getElementById("right")
-
     parent.appendChild(div)
     let btn = div.getElementsByClassName('addBtn')[0]
-    // const btn = document.getElementById(event.target.dataset.id)
-    // btn.setAttribute('data-id', ship.id)
-    // btn.setAttribute('class', 'addBtn' )
     div.removeChild(btn)
   }
 
-//////////////////////////////////////////////////////////
 
   function assignCompFleet() {
-      // let configObj = {
-      //     method: "PATCH",
-      //     headers:  {
-      //       "Content-type": "application/json; charset=UTF-8",
-      //       "Accept": "application/json"
-      //     },
-      //     body: JSON.stringify({fleet_id: 2})  ///why won't it assign ships to fleet 2???
-      //   };
-//can you do the fetch to a random number 5 times?
-
   let configObj = {
       method: 'PATCH',
       body: JSON.stringify({ fleet_id: 2 }),
-    headers: {
-      "Content-type": "application/json; charset=UTF-8"
-    }
-}
-    fetch(`http://localhost:3000/ships/${Math.floor(Math.random() * 34) + 1 }`, configObj)   //here you are changing that particular ships fleet id - but it is not working.  it is assigning 1 instead of 2.
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(json) {
-        console.log(json)
-    });
-  };
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      }
+    };
+    for (let i = 0; i < 5; i++) {
+      fetch(`http://localhost:3000/ships/${Math.floor(Math.random() * 34) + 1 }`, configObj)   //here you are changing that particular ships fleet id - but it is not working.  it is assigning 1 instead of 2.
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(json) {
+          console.log(json)
 
-////////////////////  late  night craziness
-
-// function assignCompFleet() {
-//     let configObj = {
-//         method: "POST",
-//         headers:  {
-//           "Content-Type": "application/json",
-//           "Accept": "application/json"
-//         },
-//         // body: JSON.stringify({fleet_id: 3})  ///why won't it assign ships to fleet 2???
-//       };
-// //can you do the fetch to a random number 5 times?
-//
-//   fetch("http://localhost:3000/fleets", configObj)   //here you are changing that particular ships fleet id - but it is not working.  it is assigning 1 instead of 2.
-//   .then(function(response) {
-//     return response.json();
-//   })
-//   .then(function(json) {
-//       console.log(json)
-//   });
-// };
-//
-
-//////
+          // const div = event.target.parentElement  <-- HOW DO I SELECT THE DIV WITH THIS JSON ID? const div =
+           a = document.querySelectorAll("div.card")
+           for (div of a) {
+             if (json["id"] == div.dataset['id']) {
+               console.log(div)
+               console.log("it!")  ///add code here to make the card move when the data id matches the json id
+               div.remove()
+               const parent = document.getElementById("right")
+               parent.appendChild(div)
+             } else {
+               console.log("not it!")
+             }
+           }
+        });
+      };
+    };
 
 
-
-function assignFleet(event) {
-  event.preventDefault()
-      let configObj = {
+    function assignFleet(event) {
+      event.preventDefault()
+        let configObj = {
           method: "PATCH",
           headers:  {
             "Content-Type": "application/json",
@@ -120,12 +95,12 @@ function assignFleet(event) {
           },
           body: JSON.stringify({fleet_id: 1})
         };
-
   fetch(`http://localhost:3000/ships/${event.target.dataset.id}`, configObj)   //here you are changing that particular ships fleet id.
     .then(response => response.json())
     .then(json => {
       if (json.message) {
         alert(json.message)
+        assignCompFleet()
         battle()
       } else {
       }
@@ -136,10 +111,12 @@ function battle() {
   let button = document.createElement("button")
   let div = document.createElement("div")
   let p = document.createElement("p")
-  div.id = "battlebutton"
+  // div.id = "battlebutton"
   button.id = "battlebutton"
+  button.classList.add("btn", "btn-danger", "btn-block")
   button.innerText = "BATTLE"
   document.getElementById('right').appendChild(div)
+  div.appendChild(p)
   div.appendChild(button)
 }
 
@@ -156,13 +133,18 @@ function resetFleet() {
         "Content-Type": "application/json",
         "Accept": "application/json"
       },
-      body: JSON.stringify({fleet_id: 0})
+      body: JSON.stringify({fleet_id: null})
     };
     fetch("http://localhost:3000/fleets", configObj)
     .then(function(response) {
       return response.json();
     })
-      .then(json => console.log(json));
+    .then(function(json){
+      // Use this data inside of `json` to do DOM manipulation
+    })
+    .catch(function(error) {
+      console.log(error.message);
+ });
     }
 
 
