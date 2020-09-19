@@ -65,19 +65,23 @@ function moveShipCard(event){
           return response.json();
         })
         .then(function(json) {
-          console.log(json)
+          // console.log(json)
 
           // const div = event.target.parentElement  <-- HOW DO I SELECT THE DIV WITH THIS JSON ID? const div =
            a = document.querySelectorAll("div.card")
+
+//below you start iterating through the see if the random number matches a ship, if it does, then move it over.  but it doesn't work well.
            for (div of a) {
              if (json["id"] == div.dataset['id']) {
-               console.log(div)
-               console.log("it!")  ///add code here to make the card move when the data id matches the json id
+               console.log("it!")  ///this and below should fire when the json id equals the div id.  Refresh on iterators.  
                div.remove()
                const parent = document.getElementById("right")
                parent.appendChild(div)
+               let btn = div.getElementsByClassName('addBtn')[0]
+               div.removeChild(btn)
              } else {
                console.log("not it!")
+
              }
            }
         });
