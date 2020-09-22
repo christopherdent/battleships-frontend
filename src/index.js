@@ -1,5 +1,6 @@
 const endPoint = "http://localhost:3000/ships"
 
+
 function getShips(){
   return fetch(endPoint)
     .then(function(response) {
@@ -43,53 +44,78 @@ function buildShipCard(ship) {
 function moveShipCard(event){
     event.preventDefault()
     const div = event.target.parentElement
-    div.remove()  //removes from avail ships
+    div.remove()  //removes from avail ships - will leaving them there fix my future issue with fleet 2?
     const parent = document.getElementById("right")
     parent.appendChild(div)
-    div.classList.add("cardsmall")
+    div.classList.remove('card')
+     div.classList.add("cardsmall")
     let btn = div.getElementsByClassName('addBtn')[0]
     div.removeChild(btn)
   }
 
+   function assignCompFleet() {
 
-  function assignCompFleet() {
-  let configObj = {
-      method: 'PATCH',
-      body: JSON.stringify({ fleet_id: 2 }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8"
-      }
-    };
-    for (let i = 0; i < 5; i++) {
-      fetch(`http://localhost:3000/ships/${Math.floor(Math.random() * 34) + 1 }`, configObj)   //here you are changing that particular ships fleet id - but it is not working.  it is assigning 1 instead of 2.
-        .then(function(response) {
-          return response.json();
-        })
-        .then(function(json) {
-          // console.log(json)
+     const configObj = {
+           method: 'POST',
+           headers: {
+             "Content-Type": "application/json",
+             "Accept": "application/json"
+           },
+           body: JSON.stringify({
+             id: 2
+           })
+          }
 
-          // const div = event.target.parentElement  <-- HOW DO I SELECT THE DIV WITH THIS JSON ID? const div =
-           a = document.querySelectorAll("div.card")
+       fetch('http://localhost:3000/fleets/', configObj)
+       .then(function(response) {
+         moveCompFleet()  ///def not the right spot for this but for some reason this method doesnt get past the next line
+         response.json();
+       })
+       .then(function(json){
+         console.log(json)
+       })
+       .catch(function(error) {
+         console.log(error.message);
+       });
+       };
 
-//below you start iterating through the see if the random number matches a ship, if it does, then move it over.  but it doesn't work well.
-           for (div of a) {
-             if (json["id"] == div.dataset['id']) {
-               console.log("it!")  ///this and below should fire when the json id equals the div id.  Refresh on iterators.
-               div.remove()
-               const parent = document.getElementById("right")
-               parent.appendChild(div)
-               div.classList.add("cardsmall")
-               let btn = div.getElementsByClassName('addBtn')[0]
-               div.removeChild(btn)
-             } else {
-               console.log("not it!")
+      function moveCompFleet() {
+          a = document.querySelectorAll("div.card")
+          arr = []
+           fetch('http://localhost:3000/fleets')
+            .then(function(response) {
+              return response.json();
+            })
+            .then(json => {
+              json.forEach(fleet => fleet.id == 2 ? console.log(fleet.ships) : console.log('wrong fleet'));
+              json.forEach(async function(fleet) {
+                if (fleet.id == 2) {
+                  fleet.ships.forEach(ship => arr.push(ship))
+                 }
+                 // debugger // i can access arr from here.  supposedly.
+                })
+                // debugger //uh and here too now, supposedly
 
-             }
-           }
-        });
-      };
-    };
+                arr.forEach(async function(ship) {
 
+                 for (div of a) {
+                   if (ship.id == div.dataset['id']) {
+
+                     console.log("it!")  ///this and below should fire when the json id equals the div id.  Refresh on iterators.
+                     div.remove()
+                     const parent = document.getElementById("right")
+                     parent.appendChild(div)
+                     div.classList.add("cardsmall")
+                     // div.innerText.style.fontsize = "xx-large";
+                     let btn = div.getElementsByClassName('addBtn')[0]
+                     div.removeChild(btn)
+                  } else {
+                    console.log("not it!")
+                   }
+                 }
+               })
+              })
+            }
 
     function assignFleet(event) {
       event.preventDefault()

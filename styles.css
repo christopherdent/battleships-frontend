@@ -1,7 +1,8 @@
 
 
+
 .hero {
-  padding-left: 50%
+  padding-left: 70%
 }
 
 /* original code below  */
@@ -12,8 +13,6 @@ body {
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
-
-
 }
 
 
@@ -22,8 +21,7 @@ body {
     margin: 0;
     text-align: center;
     color: white;
-      position: fixed;
-
+    position: fixed;
   }
 
   main {
@@ -31,7 +29,8 @@ body {
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     grid-gap: 20px;
-    padding-top: 100px;
+    /* padding-top: 100px; */
+    /* padding-top: 10% */
     padding-bottom: 300px;
 
   }
@@ -78,10 +77,6 @@ body {
     border-radius: 10px;
   }
 
-  button.release {
-    float: right;
-    background-color: #E1332D;
-  }
 
   @media only screen and (min-width: 500px) {
     main {
@@ -110,12 +105,8 @@ body {
 
 
 
-  #battlefield {
-    /* background-image: url("https://wallpapersite.com/images/pages/pic_w/16589.jpg"); */
-  }
-
-  #battlebutton {
+  /* #battlebutton {
   display: flex;
   justify-content: center;
 
-}
+} */
