@@ -29,6 +29,7 @@ function getShips(){
         img.src = ship.image
         para.innerText = ship.name
         para2.innerText = `${ship.country} / ${ship.kind}`
+        para.id = "text"
 
         img.width = "150";
         img.height = "150";
@@ -72,11 +73,18 @@ function moveShipCard(event){
     const div = event.target.parentElement
     div.remove()  //removes from avail ships - will leaving them there fix my future issue with fleet 2?
     const parent = document.getElementById("right")
+
+
     parent.appendChild(div)
     div.classList.remove('card')
      div.classList.add("cardsmall")
+
+     // let para = getElementsByClassName("p")//
     let btn = div.getElementsByClassName('addBtn')[0]
     div.removeChild(btn)
+
+    let txt = div.innerText
+
   }
 
    function assignCompFleet() {
@@ -133,7 +141,8 @@ function moveShipCard(event){
                      div.remove()
                      const parent = document.getElementById("right")
                      parent.appendChild(div)
-                     div.classList.add("cardsmall")
+                     div.classList.remove('card')
+                      div.classList.add("cardsmall")
                      // div.innerText.style.fontsize = "xx-large";
                      let btn = div.getElementsByClassName('addBtn')[0]
                      div.removeChild(btn)
@@ -151,14 +160,20 @@ function battleButton() {
   let button = document.createElement("button")
   let div = document.createElement("div")
   let p = document.createElement("p")
-  // div.id = "battlebutton"
   button.id = "battlebutton"
   button.classList.add("btn", "btn-danger", "btn-block")
   button.innerText = "BATTLE"
   document.getElementById('right').appendChild(div)
+
+  removeAddButtons()
+
   div.appendChild(p)
-  div.appendChild(button)
+
+  setTimeout(function(){ div.appendChild(button); }, 1000);
+
   button.addEventListener("click", fight)
+
+
 }
 
 function fight(event){
@@ -170,6 +185,13 @@ function fight(event){
       alert(json.message)
     });
   }
+
+function removeAddButtons() {
+  btns = document.getElementsByClassName('addBtn')
+  btnArray = Array.from(btns)
+  btnArray.forEach(btn => btn.remove());
+}
+
 
 function resetFleet() {
   let configObj = {
