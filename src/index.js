@@ -60,6 +60,7 @@ function assignFleet(event) {
         .then(json => {
           if (json.message) {
             alert(json.message)
+            removeAddButtons()
             assignCompFleet()
             battleButton()
           } else {
@@ -144,8 +145,8 @@ function moveShipCard(event){
                      div.classList.remove('card')
                       div.classList.add("cardsmall")
                      // div.innerText.style.fontsize = "xx-large";
-                     let btn = div.getElementsByClassName('addBtn')[0]
-                     div.removeChild(btn)
+                     // let btn = div.getElementsByClassName('addBtn')[0]
+                     // div.removeChild(btn)
                   } else {
                     console.log("not it!")
                    }
@@ -164,16 +165,9 @@ function battleButton() {
   button.classList.add("btn", "btn-danger", "btn-block")
   button.innerText = "BATTLE"
   document.getElementById('right').appendChild(div)
-
-  removeAddButtons()
-
   div.appendChild(p)
-
   setTimeout(function(){ div.appendChild(button); }, 1000);
-
   button.addEventListener("click", fight)
-
-
 }
 
 function fight(event){
@@ -184,6 +178,13 @@ function fight(event){
     .then(json => {
       alert(json.message)
     });
+    let btn = document.createElement("BUTTON")
+    btn.id = 'again'
+    btn.innerText = "Play Again?"
+    let nav = document.getElementById('navbar')
+    // nav.appendChild(btn)
+    setTimeout(function(){ nav.appendChild(btn); }, 2500);
+    btn.addEventListener("click", reload)
   }
 
 function removeAddButtons() {
@@ -192,6 +193,10 @@ function removeAddButtons() {
   btnArray.forEach(btn => btn.remove());
 }
 
+function reload() {
+  window.location.reload();
+  return false;
+}
 
 function resetFleet() {
   let configObj = {
