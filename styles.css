@@ -1,9 +1,9 @@
 
 
 
-.hero {
+/* .hero {
   padding-left: 70%
-}
+} */
 
 /* original code below  */
 
@@ -165,6 +165,5 @@ body {
 }
 
 #wrapper{
-
     display: flex;
 }
