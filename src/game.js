@@ -117,4 +117,12 @@ class Game {
       console.log(error.message);
     });
   }
+
+
+
+   winner = (msg) => {
+      setTimeout(function(){ alert(msg); }, 4000);
+  }
+
+
 }

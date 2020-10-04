@@ -114,7 +114,7 @@ class ShipCard {
            // alert(json.message)
            let msg = json.message
            // setTimeout(this.winner(msg), 4000);
-           this.winner(msg)
+           newGame.winner(msg)
            if (json.message.includes("Computer")) {
              human.forEach(card => card.id = "fade-out");
            } else {
@@ -125,9 +125,9 @@ class ShipCard {
          newGame.playAgain()
        }
 
-       static winner = (msg) => {
-           setTimeout(function(){ alert(msg); }, 4000);
-
-       }
+       // static winner = (msg) => {
+       //     setTimeout(function(){ alert(msg); }, 4000);
+       //
+       // }
 
 }
