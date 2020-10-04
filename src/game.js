@@ -11,7 +11,8 @@ class Game {
     })
     .then(json => {
       json.forEach(ship => console.log(ship.name));
-      json.forEach(ship => this.buildShipCard(ship))
+      // json.forEach(ship => this.buildShipCard(ship))
+      json.forEach(ship => ShipCard.build(ship))
     })
     .catch(function(error) {
       console.log(error.message);
@@ -83,7 +84,7 @@ class Game {
         let nav = document.getElementById('navbar')
         btn.id = 'again'
         btn.innerText = "Play Again?"
-        setTimeout(function(){ nav.appendChild(btn); }, 2500);
+        setTimeout(function(){ nav.appendChild(btn); }, 7000);
         btn.addEventListener("click", newGame.reload)
       }
 

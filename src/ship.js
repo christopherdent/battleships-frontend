@@ -40,6 +40,7 @@ class ShipCard {
   parent.appendChild(div)
   div.classList.remove('card')
   div.classList.add("cardsmall")
+  div.classList.add("human")
   div.removeChild(btn)
 
 }
@@ -89,6 +90,7 @@ class ShipCard {
                 parent.appendChild(div)  // append that div to the right side
                 div.classList.remove('card')  //get rid of the old class
                 div.classList.add("cardsmall")  //add the new
+                div.classList.add("computer")
              } else {
                console.log("not it!")
               }
@@ -96,15 +98,36 @@ class ShipCard {
           })
         });
        }
+
        static fight = () => {
+
+
+         let human = Array.from(document.querySelectorAll("div.human"))
+         let computer = document.querySelectorAll('div.computer')
+
        fetch('http://localhost:3000/battles')
          .then(function(response) {
            return response.json();
          })
          .then(json => {
-           alert(json.message)
-         });
+           // setTimeout(function(){ alert(json.message)); }, 5000); //setting a timeout here makes game fail.
+           // alert(json.message)
+           let msg = json.message
+           // setTimeout(this.winner(msg), 4000);
+           this.winner(msg)
+           if (json.message.includes("Computer")) {
+             human.forEach(card => card.id = "fade-out");
+           } else {
+             computer.forEach(card => card.id = "fade-out");
+           }
+
+          });
          newGame.playAgain()
+       }
+
+       static winner = (msg) => {
+           setTimeout(function(){ alert(msg); }, 4000);
+
        }
 
 }

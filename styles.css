@@ -156,7 +156,7 @@ body {
 #again {
   font-size: 40px;
   color: #fff;
-  background-color: blue;
+  background-color: grey;
   border-radius: 800px;
   height: 800px;
   width: 800px;
@@ -166,7 +166,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 #wrapper{
@@ -181,12 +181,12 @@ body {
   transform: translate(-50%, -50%);
 } */
 /* code for making losing fleet fade out */
-.fade-out {
-  animation: fadeOut ease 8s;
-  -webkit-animation: fadeOut ease 8s;
-  -moz-animation: fadeOut ease 8s;
-  -o-animation: fadeOut ease 8s;
-  -ms-animation: fadeOut ease 8s;
+#fade-out {
+  animation: fadeOut ease 4s;
+  -webkit-animation: fadeOut ease 4s;
+  -moz-animation: fadeOut ease 4s;
+  -o-animation: fadeOut ease 4s;
+  -ms-animation: fadeOut ease 4s;
 }
 @keyframes fadeOut {
   0% {
