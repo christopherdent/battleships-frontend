@@ -19,9 +19,9 @@ class Game {
     });
   }
 
-   buildShipCard = (ship) => {
-     ShipCard.build(ship)
-  }
+  //  buildShipCard = (ship) => {
+  //    ShipCard.build(ship)
+  // }
 
   assignFleet = (event) => {
 
