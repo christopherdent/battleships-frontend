@@ -54,9 +54,36 @@ class Game {
     ShipCard.move(ship)
   }
 
+   // assignCompFleet = () => {  ///this method assigns a fleet to id 2 via fetch
+   //   const configObj = {
+   //         method: 'POST',
+   //         headers: {
+   //           "Content-Type": "application/json",
+   //           "Accept": "application/json"
+   //         },
+   //         body: JSON.stringify({
+   //           id: 2
+   //         })
+   //        }
+   //     fetch('http://localhost:3000/fleets/', configObj)
+   //     .then(function(response) {
+   //       response.json();
+   //     })
+   //     .then(function(json){
+   //       ShipCard.battle()
+   //       ShipCard.moveCompFleet()
+   //     })
+   //     .catch(function(error) {
+   //       console.log(error.message);
+   //     });
+   //
+   //     };
+
+
    assignCompFleet = () => {  ///this method assigns a fleet to id 2 via fetch
      const configObj = {
-           method: 'POST',
+           // method: 'POST',
+           method: 'PATCH',
            headers: {
              "Content-Type": "application/json",
              "Accept": "application/json"
@@ -65,7 +92,7 @@ class Game {
              id: 2
            })
           }
-       fetch('http://localhost:3000/fleets/', configObj)
+       fetch('http://localhost:3000/compfleets/', configObj)
        .then(function(response) {
          response.json();
        })
