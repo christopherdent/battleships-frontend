@@ -1,9 +1,9 @@
 
 
 
-.hero {
+/* .hero {
   padding-left: 70%
-}
+} */
 
 /* original code below  */
 
@@ -154,17 +154,80 @@ body {
 
 
 #again {
-  font-size: 20px;
+  font-size: 40px;
   color: #fff;
-  background-color: blue;
-  border-radius: 100px;
-  height: 100px;
-  width: 100px;
-  position: relative;
-  z-index: 10;
+  background-color: grey;
+  border-radius: 800px;
+  height: 800px;
+  width: 800px;
+  /* position: relative;
+  z-index: 10; */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.8;
 }
 
 #wrapper{
-
     display: flex;
+}
+
+
+/* .modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
+/* code for making losing fleet fade out */
+#fade-out {
+  animation: fadeOut ease 4s;
+  -webkit-animation: fadeOut ease 4s;
+  -moz-animation: fadeOut ease 4s;
+  -o-animation: fadeOut ease 4s;
+  -ms-animation: fadeOut ease 4s;
+}
+@keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-moz-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-o-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
+  }
+}
+
+@-ms-keyframes fadeOut {
+  0% {
+    opacity:1;
+  }
+  100% {
+    opacity:0;
 }
