@@ -4,24 +4,26 @@ class Game {
    setTimeout(function(){ alert("Select Your Five Ships!"); }, 1000);
   }
 
-  getShips = () => {
-  fetch("http://localhost:3000/ships")
-    .then(function(response) {
-      return response.json();    //why do i HAVE to return it?  Game fails if I don't, but why?
-    })
-    .then(json => {
-      json.forEach(ship => console.log(ship.name));
-      // json.forEach(ship => this.buildShipCard(ship))
-      json.forEach(ship => ShipCard.build(ship))
-    })
-    .catch(function(error) {
-      console.log(error.message);
-    });
-  }
 
-  //  buildShipCard = (ship) => {
-  //    ShipCard.build(ship)
-  // }
+
+  getShips = () => {
+
+
+  fetch("http://localhost:3000/ships")
+  .then(function(response) {
+    return response.json();    //why do i HAVE to return it?  Game fails if I don't, but why?
+  })
+  .then(json => {
+    json.forEach(ship => console.log(ship.name));
+    let arr = []
+    json.forEach(ship => arr.push(ship))
+    arr.sort((a, b) => a.name.localeCompare(b.name))
+    arr.forEach(ship => ShipCard.build(ship))
+  })
+  .catch(function(error) {
+    console.log(error.message);
+  });
+}
 
   assignFleet = (event) => {
 
@@ -54,35 +56,10 @@ class Game {
     ShipCard.move(ship)
   }
 
-   // assignCompFleet = () => {  ///this method assigns a fleet to id 2 via fetch
-   //   const configObj = {
-   //         method: 'POST',
-   //         headers: {
-   //           "Content-Type": "application/json",
-   //           "Accept": "application/json"
-   //         },
-   //         body: JSON.stringify({
-   //           id: 2
-   //         })
-   //        }
-   //     fetch('http://localhost:3000/fleets/', configObj)
-   //     .then(function(response) {
-   //       response.json();
-   //     })
-   //     .then(function(json){
-   //       ShipCard.battle()
-   //       ShipCard.moveCompFleet()
-   //     })
-   //     .catch(function(error) {
-   //       console.log(error.message);
-   //     });
-   //
-   //     };
-
 
    assignCompFleet = () => {  ///this method assigns a fleet to id 2 via fetch
      const configObj = {
-           // method: 'POST',
+
            method: 'PATCH',
            headers: {
              "Content-Type": "application/json",
