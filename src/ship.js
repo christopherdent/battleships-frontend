@@ -23,11 +23,15 @@ class ShipCard {
       btn.innerText = "Add to Fleet"
       btn.addEventListener("click", newGame.moveShipCard)
       btn.addEventListener("click", newGame.assignFleet)
-      document.getElementById('main').appendChild(card)
+
+      document.getElementById('main').appendChild(card)  
+
       card.appendChild(img)
       card.appendChild(para)
       card.appendChild(para2)
       card.appendChild(btn)
+// document.getElementsById("text")
+
     }
 
 
