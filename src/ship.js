@@ -24,7 +24,7 @@ class ShipCard {
       btn.addEventListener("click", newGame.moveShipCard)
       btn.addEventListener("click", newGame.assignFleet)
 
-      document.getElementById('main').appendChild(card)  
+      document.getElementById('main').appendChild(card)
 
       card.appendChild(img)
       card.appendChild(para)
@@ -73,7 +73,7 @@ class ShipCard {
  static moveCompFleet = () => {   ///this function renders fleet 2
      const a = document.querySelectorAll("div.card")
      const arr = []
-      fetch('http://localhost:3000/fleets')
+      fetch('https://safe-gorge-11585.herokuapp.com/fleets')
        .then(function(response) {
          return response.json();
        })
@@ -109,7 +109,7 @@ class ShipCard {
          let human = Array.from(document.querySelectorAll("div.human"))
          let computer = document.querySelectorAll('div.computer')
 
-       fetch('http://localhost:3000/battles')
+       fetch('https://safe-gorge-11585.herokuapp.com/battles')
          .then(function(response) {
            return response.json();
          })
