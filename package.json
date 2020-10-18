@@ -1,0 +1,11 @@
+{
+  "name": "battleships-frontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:christopherdent/battleships-frontend",
+  "author": "<christopherdent01@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "jquery": "^3.5.1"
+  }
+}
