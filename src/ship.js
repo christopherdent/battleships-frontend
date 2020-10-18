@@ -73,7 +73,7 @@ class ShipCard {
  static moveCompFleet = () => {   ///this function renders fleet 2
      const a = document.querySelectorAll("div.card")
      const arr = []
-      fetch('https://safe-gorge-11585.herokuapp.com/fleets')
+      fetch('http://localhost:3000/fleets')
        .then(function(response) {
          return response.json();
        })
@@ -109,7 +109,7 @@ class ShipCard {
          let human = Array.from(document.querySelectorAll("div.human"))
          let computer = document.querySelectorAll('div.computer')
 
-       fetch('https://safe-gorge-11585.herokuapp.com/battles')
+       fetch('http://localhost:3000/battles')
          .then(function(response) {
            return response.json();
          })
