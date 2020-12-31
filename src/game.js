@@ -1,7 +1,7 @@
 class Game {
 
   selectShips = () => {
-   setTimeout(function(){ alert("Select Your Five Ships!"); }, 1000);
+   setTimeout(function(){ alert("Select Your Five Ships!"); }, 1500);
   }
 
 
