@@ -1,7 +1,9 @@
 class Game {
 
   selectShips = () => {
+    document.addEventListener('DOMContentLoaded', function() {
    setTimeout(function(){ alert("Select Your Five Ships!"); }, 1500);
+   })
   }
 
 
