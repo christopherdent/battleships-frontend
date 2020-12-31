@@ -1,5 +1,5 @@
 class ShipCard {
-//i think most of these should be 'static'
+
 
  static build = (ship) => {
     let img = document.createElement("img");
