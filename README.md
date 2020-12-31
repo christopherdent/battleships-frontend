@@ -4,6 +4,8 @@ BATTLE, SHIPS! is a single page application (SPA) game that allows you too creat
 
 This app uses a Rails API back-end with seed data and a PostgreSQL database, along with a Javascript front-end.   
 
+You can play the game live here: https://christopherdent.github.io/battleships-frontend/ 
+
 ## The Front End  
 The front end is designed with HTML and CSS working in conjunction with Javascript, and the Rails bsaed back-end.  It uses Javascript 'fetch' requests to allow a human player to assign specific ships to their fleet, and another to create a random computer fleet out of the remaining vessels.  
 
