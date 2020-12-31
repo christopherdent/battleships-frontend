@@ -20,9 +20,9 @@ class Game {
     arr.sort((a, b) => a.name.localeCompare(b.name))
     arr.forEach(ship => ShipCard.build(ship))
   })
-  .catch(function(error) {
-    console.log(error.message);
-  });
+  // .catch(function(error) {
+  //   console.log(error.message);
+  // });
 }
 
   assignFleet = (event) => {
