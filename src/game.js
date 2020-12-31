@@ -9,7 +9,7 @@ class Game {
   getShips = () => {
 
 
-  fetch("http://localhost:3000/ships")
+  fetch("https://safe-gorge-11585.herokuapp.com//ships")
   .then(function(response) {
     return response.json();    //why do i HAVE to return it?  Game fails if I don't, but why?
   })
