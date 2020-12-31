@@ -54,8 +54,8 @@ body {
     box-shadow: 10px 10px grey;
     padding: 10px;
     border-radius: 10px;
+    /* display: inline-block; */
     display: inline-block;
-
 
   }
 
@@ -147,10 +147,24 @@ body {
 }
 
  #right {
-   position: fixed;
-   padding-top: 1000px;
+   /* position: fixed; */
+   position: absolute;
+   padding-top: 1200px;
    font-size: 12px;
+
  }
+
+#thinner{
+  right: 90%;
+}
+
+#wider{
+  right: 30%;
+}
+
+ /* #selections {
+   position: relative;
+ } */
 
 
 #again {
@@ -174,12 +188,6 @@ body {
 }
 
 
-/* .modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-} */
 /* code for making losing fleet fade out */
 #fade-out {
   animation: fadeOut ease 4s;

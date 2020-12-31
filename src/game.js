@@ -1,7 +1,7 @@
 class Game {
 
   selectShips = () => {
-   setTimeout(function(){ alert("Select Your Five Ships!"); }, 1000);
+   setTimeout(function(){ alert("Select Your Five Ships!"); }, 1500);
   }
 
 
@@ -20,9 +20,9 @@ class Game {
     arr.sort((a, b) => a.name.localeCompare(b.name))
     arr.forEach(ship => ShipCard.build(ship))
   })
-  .catch(function(error) {
-    console.log(error.message);
-  });
+  // .catch(function(error) {
+  //   console.log(error.message);
+  // });
 }
 
   assignFleet = (event) => {
@@ -36,7 +36,7 @@ class Game {
         body: JSON.stringify({fleet_id: 1})
       };
       event.preventDefault()
-      fetch(`http://localhost:3000/ships/${event.target.dataset.id}`, configObj)   //here you are changing that particular ships fleet id.
+      fetch(`https://safe-gorge-11585.herokuapp.com//ships/${event.target.dataset.id}`, configObj)   //here you are changing that particular ships fleet id.
         .then(response => response.json())
         .then(json => {
           if (json.message) {
@@ -69,7 +69,7 @@ class Game {
              id: 2
            })
           }
-       fetch('http://localhost:3000/compfleets/', configObj)
+       fetch('https://safe-gorge-11585.herokuapp.com//compfleets/', configObj)
        .then(function(response) {
          response.json();
        })
@@ -110,7 +110,7 @@ class Game {
       },
       body: JSON.stringify({fleet_id: null})
     };
-    fetch("http://localhost:3000/fleets", configObj)
+    fetch("https://safe-gorge-11585.herokuapp.com//fleets", configObj)
     .then(function(response) {
       return response.json();
     })
