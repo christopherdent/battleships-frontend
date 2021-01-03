@@ -1,12 +1,6 @@
 
 
 
-/* .hero {
-  padding-left: 70%
-} */
-
-/* original code below  */
-
 body {
   background: url('https://ak.picdn.net/shutterstock/videos/25382975/thumb/1.jpg?ip=x480') no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -105,8 +99,6 @@ body {
     color: white;
   }
 
-
-
 .star {
   padding-left: 20%
   height: 200px;
@@ -116,9 +108,7 @@ body {
 
 #battlebutton {
   padding-top: 50px;
-
   padding-bottom: 50px;
-
   margin-top:20px;
   margin-bottom:15px;
 
@@ -127,7 +117,6 @@ body {
 #battlebutton:hover {
   /* Start the shake animation and make the animation last for 0.5 seconds */
   animation: shake 0.5s;
-
   /* When the animation is finished, start again */
   animation-iteration-count: infinite;
 }
@@ -162,11 +151,6 @@ body {
   right: 30%;
 }
 
- /* #selections {
-   position: relative;
- } */
-
-
 #again {
   font-size: 40px;
   color: #fff;
@@ -174,8 +158,6 @@ body {
   border-radius: 800px;
   height: 800px;
   width: 800px;
-  /* position: relative;
-  z-index: 10; */
   position: fixed;
   top: 50%;
   left: 50%;
@@ -238,4 +220,14 @@ body {
   }
   100% {
     opacity:0;
+}
+
+
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0;
+    height: 70px;
+    align-items: center;
 }
