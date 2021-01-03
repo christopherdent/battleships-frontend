@@ -43,8 +43,8 @@ body {
 
   div.cardsmall {
     background-color: #eeeeee;
-    height: 225px;
-    width: 200px;
+    max-height: 225px;
+    max-width: 200px;
     box-shadow: 10px 10px grey;
     padding: 10px;
     border-radius: 10px;
