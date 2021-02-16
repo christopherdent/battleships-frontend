@@ -9,7 +9,7 @@ class Game {
 
 
   getShips = () => {
-  fetch("https://safe-gorge-11585.herokuapp.com//ships")
+  fetch("https://safe-gorge-11585.herokuapp.com/ships")
   .then(function(response) {
     return response.json();
   })
@@ -36,14 +36,14 @@ class Game {
         body: JSON.stringify({fleet_id: 1})
       };
       event.preventDefault()
-      fetch(`https://safe-gorge-11585.herokuapp.com//ships/${event.target.dataset.id}`, configObj)
+      fetch(`https://safe-gorge-11585.herokuapp.com/ships/${event.target.dataset.id}`, configObj)
         .then(response => response.json())
         .then(json => {
           if (json.message) {
             alert(json.message)
             ShipCard.removeAddButtons()
             this.assignCompFleet()
-          
+
           } else {
           }
         })
@@ -69,7 +69,7 @@ class Game {
              id: 2
            })
           }
-       fetch('https://safe-gorge-11585.herokuapp.com//compfleets/', configObj)
+       fetch('https://safe-gorge-11585.herokuapp.com/compfleets/', configObj)
        .then(function(response) {
          response.json();
        })
@@ -87,7 +87,7 @@ class Game {
         let btn = document.createElement("BUTTON")
         let nav = document.getElementById('navbar')
         btn.id = 'again'
-        btn.innerText = "Play Again?"
+        btn.innerText = "Would You Like To Play Again?"
         setTimeout(function(){ nav.appendChild(btn); }, 7000);
         btn.addEventListener("click", newGame.reload)
       }
@@ -110,7 +110,7 @@ class Game {
       },
       body: JSON.stringify({fleet_id: null})
     };
-    fetch("https://safe-gorge-11585.herokuapp.com//fleets", configObj)
+    fetch("https://safe-gorge-11585.herokuapp.com/fleets", configObj)
     .then(function(response) {
       return response.json();
     })
