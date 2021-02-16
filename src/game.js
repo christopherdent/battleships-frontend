@@ -43,7 +43,7 @@ class Game {
             alert(json.message)
             ShipCard.removeAddButtons()
             this.assignCompFleet()
-            // this.battleButton()
+          
           } else {
           }
         })
