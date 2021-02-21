@@ -2,13 +2,14 @@
 // game.run()
 
 console.log('app is loaded')
-
-
 const newGame = new Game()
+document.addEventListener('DOMContentLoaded', function() {
+
 newGame.resetFleet()
 newGame.selectShips()
 newGame.getShips()
 
+})
 
 // document.addEventListener('DOMContentLoaded', function() {
 //   resetFleet()  //resets everything

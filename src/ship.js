@@ -49,13 +49,22 @@ class ShipCard {
 
 }
 
+  static boom = ()  =>  {
+    var boom = new Audio();
+    boom.src = "https://battleshipscjd.s3.amazonaws.com/Explosion3.mp3"
+    boom.play()
+
+  }
+
   static battle = () => {
+
     let button = document.createElement("button")
     let div = document.createElement("div")
     let p = document.createElement("p")
     button.id = "battlebutton"
     button.classList.add("btn", "btn-danger", "btn-block")
     button.innerText = "BATTLE"
+    button.onclick=this.boom
     document.getElementById('right').appendChild(div)
     div.appendChild(p)
     setTimeout(function(){ div.appendChild(button); }, 1000);
