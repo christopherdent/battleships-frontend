@@ -10,7 +10,7 @@ newGame.selectShips()
 newGame.getShips()
 
 })
-
+location.reload();
 // document.addEventListener('DOMContentLoaded', function() {
 //   resetFleet()  //resets everything
 //   getShips() //fetches ship cards & sets up chain of click events
