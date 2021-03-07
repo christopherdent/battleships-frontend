@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
 newGame.resetFleet()
 newGame.selectShips()
 newGame.getShips()
-
+location.reload();
 })
 
 // document.addEventListener('DOMContentLoaded', function() {
