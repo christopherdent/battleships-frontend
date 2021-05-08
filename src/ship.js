@@ -30,8 +30,6 @@ class ShipCard {
       card.appendChild(para)
       card.appendChild(para2)
       card.appendChild(btn)
-// document.getElementsById("text")
-
     }
 
 
@@ -114,19 +112,14 @@ class ShipCard {
 
        static fight = () => {
 
-
          let human = Array.from(document.querySelectorAll("div.human"))
          let computer = document.querySelectorAll('div.computer')
-
        fetch('https://safe-gorge-11585.herokuapp.com/battles')
          .then(function(response) {
            return response.json();
          })
          .then(json => {
-           // setTimeout(function(){ alert(json.message)); }, 5000); //setting a timeout here makes game fail.
-           // alert(json.message)
            let msg = json.message
-           // setTimeout(this.winner(msg), 4000);
            newGame.winner(msg)
            if (json.message.includes("Computer")) {
              human.forEach(card => card.id = "fade-out");
@@ -137,10 +130,5 @@ class ShipCard {
           });
          newGame.playAgain()
        }
-
-       // static winner = (msg) => {
-       //     setTimeout(function(){ alert(msg); }, 4000);
-       //
-       // }
 
 }
