@@ -11,7 +11,7 @@ class Game {
   //   }, 5000);
   // }
 
-
+  spinner = document.getElementById("spinner");
 
   selectShips = () => {
     document.addEventListener('DOMContentLoaded', function() {
@@ -22,9 +22,12 @@ class Game {
 
 
   getShips = () => {
-  const spinner = document.getElementById("spinner");
-  spinner.removeAttribute("hidden");
+  
+  spinner.removeAttribute('hidden');
+  console.log('spinner not hidden')
+    
   fetch("https://safe-gorge-11585.herokuapp.com/ships")
+   
   .then(function(response) {
     return response.json();
   })
@@ -39,9 +42,9 @@ class Game {
      
     spinner.setAttribute('hidden', "");
   })
-  // .catch(function(error) {
-  //   console.log(error.message);
-  // });
+  .catch(function(error) {
+    console.log(error.message);
+  });
 }
 
   assignFleet = (event) => {

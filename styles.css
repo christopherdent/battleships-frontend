@@ -237,13 +237,13 @@ body {
 
 #spinner::after {
   content: "";
-  width: 80px;
-  height: 80px;
-  border: 2px solid #f3f3f3;
-  border-top: 3px solid #f25a41;
+  width: 800px;
+  height: 800px;
+  border: 20px solid #ff00ff;
+  border-top: 30px solid #ff00ff;
   border-radius: 100%;
   will-change: transform;
-  animation: spin 1s infinite linear
+  animation: spin 1s infinite linear;
 }
 
 @keyframes spin {
@@ -254,3 +254,6 @@ body {
     transform: rotate(360deg);
   }
 }
+
+
+ 
