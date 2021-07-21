@@ -86,10 +86,6 @@ body {
     float:left;
   }
 
-/* #left {
-  padding: 5%;
-} */
-
   h2.battle {
     position:top;
     /* top:-5px; */
@@ -109,6 +105,7 @@ body {
 #battlebutton:hover {
   /* Start the shake animation and make the animation last for 0.5 seconds */
   animation: shake 0.5s;
+ 
   /* When the animation is finished, start again */
   animation-iteration-count: infinite;
 }
@@ -224,36 +221,21 @@ body {
     align-items: center;
 }
 
-#spinner:not([hidden]) {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  
 
-#spinner::after {
-  content: "";
-  width: 800px;
-  height: 800px;
-  border: 20px solid #ff00ff;
-  border-top: 30px solid #ff00ff;
-  border-radius: 100%;
-  will-change: transform;
-  animation: spin 1s infinite linear;
-}
 
-@keyframes spin {
+#wheel {
+  width: 600px;
+  height: 600px;
+  animation: rotation 2s infinite linear !important;
+
+ }
+
+  @keyframes rotation {
   from {
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(359deg);
   }
 }
-
-
- 

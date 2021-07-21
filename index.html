@@ -1,21 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>\
 
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <link rel="stylesheet" href="styles.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <link rel="shortcut icon" href="favicon.ico" />
     <title>Battle, Ships!</title>
-    
-
-
       <script src="./src/ship.js" defer></script>
       <script src="./src/game.js" defer></script>
       <script src="./src/index.js" defer></script>
-
-
     </head>
 
 <body>
@@ -24,10 +19,21 @@
           <p class = "hero"><img class = "img-fluid" id = "hero" src="src/hero.png"> </center></p>
         </div>
   </nav>
-  <div hidden id="spinner"><<h1 style="color: #ff00ff;">LOADING...</h1></div>
+  <!-- <div hidden id="spinner"><<h1 style="color: #ff00ff;"><img sr="wheel.gif">LOADING...</h1></div> -->
+
+
+  <div hidden id="spinner">
+    <center>
+      <img src="src/wheel2.png" id="wheel">
+  <br> 
+      Loading ships....
+  </center></div>
+
 
   <div class="d-md-flex h-md-100 align-items-initial" id='wrapper'>
 
+   
+    
   <!-- First Half -->
 
   <div class="col-md-6 p-0 h-md-100" id = "selections" flex>
