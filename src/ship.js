@@ -56,6 +56,8 @@ class ShipCard {
 
   static battle = () => {
 
+    const field = document.getElementById('field')
+
     let button = document.createElement("button")
     let div = document.createElement("div")
     let p = document.createElement("p")
@@ -66,6 +68,9 @@ class ShipCard {
     document.getElementById('right').appendChild(div)
     div.appendChild(p)
     setTimeout(function(){ div.appendChild(button); }, 1000);
+
+    field.removeAttribute('hidden');
+
     button.addEventListener("click", newGame.fight)
   }
 

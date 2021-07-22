@@ -11,7 +11,7 @@ class Game {
 
 
   getShips = () => {
-  spinner.removeAttribute('hidden');
+  // spinner.removeAttribute('hidden');
   console.log('spinner not hidden')
   fetch("https://safe-gorge-11585.herokuapp.com/ships")
   .then(function(response) {
