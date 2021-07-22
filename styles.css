@@ -226,12 +226,14 @@ body {
   
 
 
-#wheel {
+img.wheel {
   width: 600px;
   height: 600px;
-  animation: rotation 2s infinite linear !important;
+  /* animation: rotation 2s infinite linear !important; */
 
  }
+
+ 
 
   @keyframes rotation {
   from {
@@ -240,4 +242,13 @@ body {
   to {
     transform: rotate(359deg);
   }
+}
+
+ h2.loading {
+  font-size: 40px;
+  color: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+ 
 }

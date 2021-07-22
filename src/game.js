@@ -2,7 +2,11 @@ class Game {
 
   spinner = document.getElementById("spinner");
 
+  hideSpinner = () => {
+    spinner.setAttribute('hidden', "");
+  }
 
+  
   selectShips = () => {
     document.addEventListener('DOMContentLoaded', function() {
    setTimeout(function(){ alert("Select Your Five Ships!"); }, 1500);
@@ -11,8 +15,8 @@ class Game {
 
 
   getShips = () => {
-  // spinner.removeAttribute('hidden');
-  console.log('spinner not hidden')
+    spinner.removeAttribute('hidden');
+    console.log('spinner not hidden')
   fetch("https://safe-gorge-11585.herokuapp.com/ships")
   .then(function(response) {
     return response.json();
@@ -26,13 +30,15 @@ class Game {
     arr.sort((a, b) => a.name.localeCompare(b.name))
     arr.forEach(ship => ShipCard.build(ship))
      
-    // spinner.setAttribute('hidden', "");
+    spinner.setAttribute('hidden', "");
   })
   .catch(function(error) {
     console.log(error.message);
   });
-  spinner.setAttribute('hidden', "");
+   
 }
+
+
 
   assignFleet = (event) => {
 
