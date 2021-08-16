@@ -7,6 +7,7 @@ body {
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
+   
 }
 
 
@@ -18,19 +19,18 @@ body {
     position: fixed;
   }
 
-  main {
+  /* main {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     grid-gap: 20px;
     padding-bottom: 300px;
 
-  }
+  } */
 
   div.card {
     background-color: #eeeeee;
-    /* height: 300px;
-    width: 300px; */
+  
     box-shadow: 10px 10px grey;
     padding: 10px;
     border-radius: 10px;

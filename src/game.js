@@ -3,23 +3,37 @@ class Game {
   spinner = document.getElementById("spinner");
   avail = document.getElementById("avail")
 
-  // hideSpinner = () => {
-  //   spinner.setAttribute('hidden', "");
-    
-  // }
 
   
+  shuffle = (array) => {
+    let currentIndex = array.length,  randomIndex;
+    while (currentIndex != 0) {
+  
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+   
+      [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+    }
+  
+    return array;
+  }
+
+
+
   selectShips = () => {
     document.addEventListener('DOMContentLoaded', function() {
    setTimeout(function(){ alert("Select Your Five Ships!"); }, 1500);
    })
+
+   
   }
 
 
   getShips = () => {
     spinner.removeAttribute('hidden');
     console.log('spinner not hidden')
-  fetch("https://safe-gorge-11585.herokuapp.com/ships")
+
+    fetch("https://safe-gorge-11585.herokuapp.com/ships")
   .then(function(response) {
     return response.json();
   })
@@ -29,16 +43,19 @@ class Game {
      
     json.forEach(ship => arr.push(ship))
       
-    arr.sort((a, b) => a.name.localeCompare(b.name))
+    // arr.sort((a, b) => a.name.localeCompare(b.name))
+    this.shuffle(arr)
     arr.forEach(ship => ShipCard.build(ship))
      
     spinner.setAttribute('hidden', "");
     avail.removeAttribute('hidden')
+   
+    
   })
   .catch(function(error) {
     console.log(error.message);
   });
-   
+  
 }
 
 
