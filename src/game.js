@@ -1,10 +1,12 @@
 class Game {
 
   spinner = document.getElementById("spinner");
+  avail = document.getElementById("avail")
 
-  hideSpinner = () => {
-    spinner.setAttribute('hidden', "");
-  }
+  // hideSpinner = () => {
+  //   spinner.setAttribute('hidden', "");
+    
+  // }
 
   
   selectShips = () => {
@@ -31,6 +33,7 @@ class Game {
     arr.forEach(ship => ShipCard.build(ship))
      
     spinner.setAttribute('hidden', "");
+    avail.removeAttribute('hidden')
   })
   .catch(function(error) {
     console.log(error.message);

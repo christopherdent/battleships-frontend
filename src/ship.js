@@ -61,10 +61,12 @@ class ShipCard {
     let button = document.createElement("button")
     let div = document.createElement("div")
     let p = document.createElement("p")
+    let br = document.createElement("br")
     button.id = "battlebutton"
     button.classList.add("btn", "btn-danger", "btn-block")
     button.innerText = "BATTLE"
     button.onclick=this.boom
+    button.appendChild(br)
     document.getElementById('right').appendChild(div)
     div.appendChild(p)
     setTimeout(function(){ div.appendChild(button); }, 1000);
