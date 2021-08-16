@@ -118,14 +118,14 @@ class Game {
 
        };
 
-      playAgain = () => {
-        let btn = document.createElement("BUTTON")
-        let nav = document.getElementById('navbar')
-        btn.id = 'again'
-        btn.innerText = "Would You Like To Play Again?"
-        setTimeout(function(){ nav.appendChild(btn); }, 7000);
-        btn.addEventListener("click", newGame.reload)
-      }
+  playAgain = () => {
+    let btn = document.createElement("BUTTON")
+    let nav = document.getElementById('navbar')
+    btn.id = 'again'
+    btn.innerText = "Would You Like To Play Again?"
+    setTimeout(function(){ nav.appendChild(btn); }, 7000);
+    btn.addEventListener("click", newGame.reload)
+  }
 
   fight = (event) => {
     ShipCard.fight()
