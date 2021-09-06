@@ -10,6 +10,7 @@ body {
    
 }
 
+a { color: rgb(201, 204, 48) !important; } 
 
   h1 {
     padding: 10px;
@@ -17,6 +18,14 @@ body {
     text-align: center;
     color: white;
     position: fixed;
+  }
+
+  h5 {
+   
+    text-align: center;
+    color: rgb(201, 204, 48) !important;
+    
+     
   }
 
   /* main {
